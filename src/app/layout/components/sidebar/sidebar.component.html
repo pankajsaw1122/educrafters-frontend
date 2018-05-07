@@ -1,0 +1,42 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
+    <mat-nav-list role="navigation">
+        <a mat-list-item routerLink="/dashboard" [routerLinkActive]="['router-link-active']">
+            <mat-icon>dashboard</mat-icon>
+            &nbsp;&nbsp; Dashboard
+        </a>
+        <a mat-list-item [routerLink]="['/admission']" [routerLinkActive]="['router-link-active']">
+            <mat-icon>account_box</mat-icon>&nbsp;&nbsp; New Admission
+        </a>
+        <a mat-list-item [routerLink]="['/fees']" [routerLinkActive]="['router-link-active']">
+            <mat-icon>monetization_on</mat-icon>&nbsp;&nbsp; Fees Management
+        </a>
+        <a mat-list-item [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
+            <mat-icon>insert_chart</mat-icon>&nbsp;&nbsp; Statistics
+        </a>
+    </mat-nav-list>
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header style="height: 48px;">
+                <mat-panel-title>
+                    <mat-icon>view_list</mat-icon> &nbsp;&nbsp;<span class="expand-button"> Students Record </span> 
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-nav-list role="navigation">
+                <a mat-list-item style="font-size:12px" routerLink="/student-list" [routerLinkActive]="['router-link-active']">
+                    <mat-icon class="mat-icon-custom">search</mat-icon>
+                    &nbsp;&nbsp; Students List
+                </a>
+                <a mat-list-item style="font-size:12px" [routerLink]="['/admission']" [routerLinkActive]="['router-link-active']">
+                    <mat-icon class="mat-icon-custom">payment</mat-icon>&nbsp;&nbsp; Paid Students
+                </a>
+                <a mat-list-item style="font-size:12px" [routerLink]="['/fees']" [routerLinkActive]="['router-link-active']">
+                    <mat-icon class="mat-icon-custom">account_balance_wallet
+                    </mat-icon>&nbsp;&nbsp; Unpaid Students
+                </a>
+                <a mat-list-item style="font-size:12px" [routerLink]="['/charts']" [routerLinkActive]="['router-link-active']">
+                    <mat-icon class="mat-icon-custom">class</mat-icon>&nbsp;&nbsp; Students by Class
+                </a>
+            </mat-nav-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</nav>

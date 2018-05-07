@@ -1,0 +1,81 @@
+<div class="row form-outer">
+    <div class="card">
+        <div class="card-header">
+            Fees Management
+        </div>
+        <div class="card-block">
+            <form [formGroup]="feesSubmissionForm" (ngSubmit)="onSubmit()" class="form-size">
+                <div class="Container fluid">
+                    <div class="row form-inner">
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput [matDatepicker]="picker" formControlName="feesSubmissionDate" readonly placeholder="Fees Submission Date">
+                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                                <mat-error>
+                                    <span *ngIf="!feesSubmissionForm.get('feesSubmissionDate').valid && feesSubmissionForm.get('feesSubmissionDate').touched">
+                                        <span *ngIf="feesSubmissionForm.get('feesSubmissionDate').errors['required']">Please enter Date of admission</span>
+                                    </span>
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput formControlName="feesAmount" placeholder="Fees Amount">
+                                </mat-form-field>
+                                <mat-error>
+                                    <span *ngIf="!feesSubmissionForm.get('feesAmount').valid && feesSubmissionForm.get('feesAmount').touched">
+                                        <span *ngIf="feesSubmissionForm.get('feesAmount').errors['required']">Please enter Parent's Occupation </span>
+                                    </span>
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <mat-select [(value)]="feesforMonth" formControlName="feesforMonth">
+                                        <mat-option value="">Select Month</mat-option>
+                                        <mat-option value="March">March</mat-option>
+                                        <mat-option value="April">April</mat-option>
+                                        <mat-option value="May">May</mat-option>
+                                        <mat-option value="June">June</mat-option>
+                                        <mat-option value="July">July</mat-option>
+                                        <mat-option value="August">August</mat-option>
+                                        <mat-option value="September">September</mat-option>
+                                        <mat-option value="October">October</mat-option>
+                                        <mat-option value="November">November</mat-option>
+                                        <mat-option value="December">December</mat-option>
+                                        <mat-option value="January">January</mat-option>
+                                        <mat-option value="Februry">Februry</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-error>
+                                    <span *ngIf="!feesSubmissionForm.get('feesforMonth').valid && feesSubmissionForm.get('feesforMonth').touched">
+                                        <span *ngIf="feesSubmissionForm.get('feesforMonth').errors['required']">Please select Month </span>
+                                    </span>
+                                </mat-error>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <mat-form-field>
+                                    <input matInput formControlName="feesRemarks" placeholder="Remarks">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <div class="button-row">
+                            <button mat-raised-button color="primary">Submit</button>
+                            <button mat-raised-button matDialogClose color="warn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,165 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'New Admission'" [icon]="'fa-edit'"></app-page-header>
+    <div class="row form-outer">
+        <div class="card">
+            <div class="card-header">
+                New Admission
+            </div>
+            <div class="card-block">
+                <form [formGroup]="admissionForm" (ngSubmit)="onSubmit()" class="form-size">
+                    <div class="Container fluid">
+                        <div class="row form-inner">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Student Name*" formControlName="studentName">
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('studentName').valid && admissionForm.get('studentName').touched">
+                                    <span *ngIf="admissionForm.get('studentName').errors['required']">Please enter student name </span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <mat-select [(value)]="className" formControlName="className">
+                                            <mat-option value="">Select Class*</mat-option>
+                                            <mat-option value="IIX">IIX</mat-option>
+                                            <mat-option value="IX">IX</mat-option>
+                                            <mat-option value="X">X</mat-option>
+                                            <mat-option value="XI">XI</mat-option>
+                                            <mat-option value="XII">XII</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('className').valid && admissionForm.get('className').touched">
+                                    <span *ngIf="admissionForm.get('className').errors['required']">Please select Class</span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput [matDatepicker]="picker" formControlName="admissionDate" readonly placeholder="Date of Admission*">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('admissionDate').valid && admissionForm.get('admissionDate').touched">
+                                    <span *ngIf="admissionForm.get('admissionDate').errors['required']">Please enter Date of admission</span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="parentsName" placeholder="Parent's Name">
+                                    </mat-form-field>
+                                    <mat-error>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="schoolName" placeholder="School Name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="form-group">
+                                    <section>
+                                        <label>Select Subject :</label>
+                                        <mat-checkbox formControlName="mathematics">Mathematics</mat-checkbox>
+                                        <mat-checkbox formControlName="physics">Physics</mat-checkbox>
+                                    </section>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="lastExamPercentage" placeholder="Last Exam Percentage %">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <mat-select [(value)]="boardName" formControlName="boardName">
+                                            <mat-option value="">Select Board*</mat-option>
+                                            <mat-option value="ICSE">ICSE</mat-option>
+                                            <mat-option value="CBSE">CBSE</mat-option>
+                                            <mat-option value="State Board">State Board</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('boardName').valid && admissionForm.get('boardName').touched">
+                                    <span *ngIf="admissionForm.get('boardName').errors['required']">Please select Board </span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="sessionYear" placeholder="Session*">
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('sessionYear').valid && admissionForm.get('sessionYear').touched">
+                                         <span *ngIf="admissionForm.get('sessionYear').errors['required']">Please enter session</span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput type="email" formControlName="studentEmail" placeholder="Student Email id*">
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('studentEmail').valid && admissionForm.get('studentEmail').touched">
+                                         <span *ngIf="admissionForm.get('studentEmail').errors['required']">Please enter Student Email</span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="parentsContact" placeholder="Parent's Contact Number*">
+                                    </mat-form-field>
+                                    <mat-error>
+                                        <span *ngIf="!admissionForm.get('parentsContact').valid && admissionForm.get('parentsContact').touched">
+                                         <span *ngIf="admissionForm.get('parentsContact').errors['required']">Please enter Parent's Contact Number </span>
+                                        </span>
+                                    </mat-error>
+                                </div>
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="studentConatctNumber" placeholder="Student Contact Number">
+                                    </mat-form-field>
+                                </div>
+
+                                <label>Select Gender :</label>
+                                <mat-radio-group formControlName="gender">
+                                    <mat-radio-button value="Male">Male</mat-radio-button>
+                                    <mat-radio-button value="Female">Female</mat-radio-button>
+                                </mat-radio-group>
+                                <br />  <br />
+                                <div class="form-group">
+                                    <mat-form-field>
+                                        <input matInput formControlName="parentsOccupation" placeholder="Parent's Occupation">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <fieldset class="form-group">
+                                    <label for="exampleInputFile">Upload Photo*</label>
+                                    <input type="file" class="form-control-file" (change) = "onFileSelect($event)">
+                                    <p *ngIf = "upload == 2" class="success"> Uploading Image Please wait</p>
+                                    <p *ngIf = "upload == 1" class="success"> Image uploaded successfully</p>
+                                    <p *ngIf = "upload == 0" class="failed"> Error in uploading image Please try again</p> 
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="button-row">
+                            <button mat-raised-button [disabled] = "!admissionForm.valid" color="primary">Submit</button>
+                            <button mat-raised-button color="warn">Cancel</button>
+                            <p *ngIf = "submitSuccess == 1" class="success"> Student data submitted successfully</p>
+                            <p *ngIf = "submitSuccess == 0" class="failed"> Failed to submit data please try again later</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+</div>
